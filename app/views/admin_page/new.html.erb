@@ -1,0 +1,105 @@
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+        <div class="mx-auto order-0">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> 
+              <li><a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white" href="/admin_page/sent_history"> Sent History</a></a></li>
+            </li>&nbsp
+            <li><a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white" href="/users/sign_out"> Logout</a></a></li>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</head>
+
+
+
+<style type="text/css">
+  
+  .btnstyle{
+    margin-left: 60px;
+  }
+</style>
+
+
+
+
+<body style="color: black;margin-bottom: 50px">
+
+  <div>
+    <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 ">Search by Id</h4>
+  <%= form_tag admin_page_new_path do %>
+  <p style="color: black; font-family: monospace;">Enter ID</p>
+
+  <%= text_field_tag :regid  %>
+  <br><br>
+  <%= submit_tag "search",class: "btn btn-info btnstyle" %>
+  <% end %>
+
+</article></div></div>
+
+
+<br>
+<br>
+<br>
+
+<% a=User.find_by_registration_id(@id) %>
+
+<% if a %>
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+  <h4 class="card-title mt-3 text-center">Details</h4>
+<%= form_tag admin_page_create_path do %>
+
+ <p1 style="color:black;" > Registration Id   </p1>		
+ <%= text_field_tag :reg,  a.registration_id , :readonly => true%>		
+ <br>
+ <br>
+<p1 style="color:black;" > Role   </p1>
+ <%= text_field_tag :role,  a.role  , :readonly => true%>
+<br>
+<br>
+<p1 style="color:black;" > Email   </p1>
+ <%= text_field_tag :email,  a.email  , :readonly => true%>
+<br>
+<br>
+<p1 style="color:black;" > UserName   </p1>
+ <%= text_field_tag :user,  a.username  , :readonly => true%>
+<br>
+<br>
+<%= submit_tag "Edit", class: "btn btn-info btnstyle" %>
+<% end %>
+</article>
+</div>
+</div>
+<% else %>
+
+
+<center><p1 style="color: black; font-family: open sans;"> No Id Selected/ Select Correct Id  </p1></center>
+
+<% end %>
+
+
+
+</div>
+
+
+
+
+</body>

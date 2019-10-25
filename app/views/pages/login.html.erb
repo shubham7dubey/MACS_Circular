@@ -1,0 +1,13 @@
+<h1>First Page</h1>
+
+<% if user_signed_in? %>
+
+<%= "welcome #{current_user.email}" %>
+<%= link_to "log out",destroy_user_session_path %>
+<% else %>
+<%= link_to "sign up",new_user_registration_path %>
+
+<%= link_to "Log in",new_user_session_path %>
+
+<% end %>
+

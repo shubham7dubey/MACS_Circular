@@ -1,0 +1,43 @@
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+</head>
+
+
+<%= form_with(model: notice, local: true) do |form| %>
+  <% if notice.errors.any? %>
+    <div id="error_explanation" >
+      <h2><%= pluralize(notice.errors.count, "error") %> prohibited this notice from being saved:</h2>
+
+      <ul>
+        <% notice.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+
+        <% end %>
+      </ul>
+    </div>
+
+
+  <% end %>
+
+  <div class="form-inputs">
+    <%= form.label :Circular_Title %>
+    <%= form.text_field :Circular_Title ,class: "custom-input"%>
+  </div>
+
+  <div style="margin-left: 20px">
+   <br>
+    <%= form.file_field :Select_File %>
+    <br>
+    <br>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit :create  ,class: "btn btn-info" %>
+  </div>
+<% end %>

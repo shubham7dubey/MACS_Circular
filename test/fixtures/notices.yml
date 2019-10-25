@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Circular_Title: MyString
+  Select_File: MyString
+
+two:
+  Circular_Title: MyString
+  Select_File: MyString

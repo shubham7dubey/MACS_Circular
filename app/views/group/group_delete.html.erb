@@ -1,0 +1,10 @@
+<%= form_tag group_delete_group_btn_path do %>
+          	<p>Enter group name</p>
+          		
+              <%= select("group", "id", @list) %>
+          		<%= submit_tag "Delete",class: "btn btn-info" %> <p> [Caution:- This action cannot be revoked.] </p>
+               
+          	</div>
+          	             
+
+            <% end %>

@@ -1,0 +1,125 @@
+
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<style>
+	
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
+}
+</style>
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+        <div class="mx-auto order-0">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> 
+
+            <li><a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white" href="/users/sign_out"> Logout</a></a></li>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body >
+
+
+
+<div class="container" style="margin-top: 5%">
+  <div class="row">
+    <div class="form-group">
+      
+      <br>
+      <div class="col-sm-10">
+        <div class="dynamic-wrap">
+          <!--<form role="form" autocomplete="off">-->
+          	<%= form_tag group_create_group_function_path do %>
+          	<p>Enter group name</p>
+          		<div class="span">
+              
+                   <input id="id"  type="text" name="g_name" required="required"> 
+
+                </div>
+          		
+          		<%= submit_tag "Create",class: "btn btn-info" %> <p> [Note:- Please enter email id and then create group] </p>
+               
+          	</div>
+          	
+          	<br>
+            <div class="entry input-group">
+              <input class="form-control " name="fields[]" id="em" type="text" placeholder="Email id" required="required" />
+             	
+              <span class="input-group-btn">
+               
+                <button class="btn btn-success btn-add " type="button">
+                        <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </span>
+            </div>
+             
+
+            <% end %>
+          <!--</form>-->
+          <br>
+          <small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another form field :)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+                         
+
+
+<script type="text/javascript">
+	
+	$(function() {
+  $(document).on('click', '.btn-add', function(e) {
+    e.preventDefault();
+
+    var dynaForm = $('.dynamic-wrap form:first'),
+      currentEntry = $(this).parents('.entry:first'),
+      newEntry = $(currentEntry.clone()).appendTo(dynaForm);
+ 		
+    newEntry.find('input').val('');
+    dynaForm.find('.entry:not(:last) .btn-add')
+      .removeClass('btn-add').addClass('btn-remove')
+      .removeClass('btn-success').addClass('btn-danger')
+      .html('<span class="glyphicon glyphicon-minus"></span>');
+  }).on('click', '.btn-remove', function(e) {
+    $(this).parents('.entry:first').remove();
+
+    e.preventDefault();
+    return false;
+  });
+});
+
+</script>
+
+
+
+
+
+</body>

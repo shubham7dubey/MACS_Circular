@@ -1,0 +1,2 @@
+class GroupDatum < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class SentNoticeDetail < ApplicationRecord
+end

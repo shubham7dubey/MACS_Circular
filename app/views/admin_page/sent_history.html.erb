@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+        <div class="mx-auto order-0">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> 
+            <li><a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white" href="/users/sign_out"> Logout</a></a></li>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+</head>
+<body>
+​
+<div class="container">
+  
+  <table class="table">
+    <thead>
+      <tr>
+
+        <th>Sender ID</th>
+        <th>Notice ID</th>
+        <th>Date & Time</th>
+        <th>Group Name</th>
+      </tr>
+    </thead>
+    <tbody> </tbody>
+     <% @data.each do |data| %>
+      <tr>
+       
+        <td><%= data.sender_id %></td>
+        <td><%= data.notices_id %></td>
+        <td><%= data.dtime %> </td>
+        <td><%= data.grp_name %> </td>
+        
+        
+      </tr>
+    <% end %>
+  </table>
+</div>
+​
+</body>
+</html>
+​
