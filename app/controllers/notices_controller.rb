@@ -14,7 +14,10 @@ class NoticesController < ApplicationController
     custom_group.each do |name|
       @list.push(name)
     end
-    
+    @notice_list=[]
+    @notices.each do |notice|
+      @notice_list.push(notice.id)
+    end
 
     
     
@@ -40,6 +43,7 @@ class NoticesController < ApplicationController
 
     s=params[:mail]
     ids=params[:id]
+    ids=ids.fetch("id")
     b=params[:branch]
     @course=b.fetch("id")
 

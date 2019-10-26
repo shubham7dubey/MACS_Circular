@@ -155,7 +155,7 @@
 <span style="font-family: consolas"> <h5>Enter notice id</h5></span>
 
 
- <input id="id"  type="text" name="id" required="required"> 
+  <%= select("id", "id", @notice_list) %>
 <br>
 
  <%= submit_tag "send email",class: "btn btn-info button" %>
