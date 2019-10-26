@@ -1,10 +1,47 @@
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container" style="margin-top: 50px">
+
+  <div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
 <%= form_tag group_delete_group_btn_path do %>
-          	<p>Enter group name</p>
+          	<h4 style="font-family: Decorative">Select group name</h4>
           		
-              <%= select("group", "id", @list) %>
-          		<%= submit_tag "Delete",class: "btn btn-info" %> <p> [Caution:- This action cannot be revoked.] </p>
+              <%= select("group", "id", @list) %>&nbsp &nbsp
+          		<%= submit_tag "Delete",class: "btn btn-info btnhgt" %>
+			<span style="margin-bottom: 20px"></span>
+ 
                
           	</div>
           	             
 
             <% end %>
+  <div class="alert alert-warning">
+    <strong>Warning!</strong> This action cannot be revoked.
+  </div>
+        </article></div>
+
+
+
+
+
+
+ 
+</div>
+
+</body>
+</html>
