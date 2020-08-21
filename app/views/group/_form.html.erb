@@ -1,0 +1,49 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<%= form_with(model: "create_from_csv", local: true) do |form| %>
+  <%# if notice.errors.any? %>
+<!--    <div id="error_explanation" >-->
+<!--      <h2><%#= pluralize(notice.errors.count, "error") %> prohibited this notice from being saved:</h2>-->
+
+<!--      <ul>-->
+        <%# notice.errors.full_messages.each do |message| %>
+<!--          <li><%#= message %></li>-->
+
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+
+
+  <%# end %>
+
+  <div class="form-inputs">
+    <p>Enter group name</p>
+    <div class="span">
+
+      <input id="id"  type="text" name="gc_name" required="required">
+
+    </div>
+
+    <label>Upload Your File </label>
+  </div>
+
+  <div style="margin-left: 20px">
+    <br>
+    <%= form.file_field :Select_File_csv %>
+    <br>
+    <br>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit :create  ,class: "btn btn-info" %>
+  </div>
+<% end %>

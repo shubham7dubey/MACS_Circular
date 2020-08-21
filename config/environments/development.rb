@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
-  config.eager_load = false
+  config.eager_load = false 
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -63,14 +63,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
-     address:              'smtp.gmail.com',
-     port:                 '465',
-     ssl:                   'true',
-     domain:               'gmail.com',
-     user_name:            'siddharth.jmanit@gmail.com',
-     password:             '#supreet0118',
-     authentication:       'login',
-     enable_starttls_auto: true  
+    address:              'smtp.gmail.com',
+    port:                 '465',
+    ssl:                   'true',
+    domain:               'gmail.com',
+    user_name:            'testmacs7@gmail.com',
+    password:             'macs@123',
+    authentication:       'login',
+    enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => '10.11.0.63:3000' }
 end

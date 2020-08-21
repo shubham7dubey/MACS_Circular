@@ -12,3 +12,12 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+Rails.application.config.assets.precompile += %w( theme.css )
+
+Rails.application.config.assets.precompile += %w( style.css )
+Rails.application.config.assets.precompile += %w( style.css.map )
+Rails.application.config.assets.precompile += %w( cs-skin-elastic.css )
+Rails.application.config.assets.precompile += %w( dashboard.js )
+Rails.application.config.assets.precompile += %w( vmap.sampledata.js )
+Rails.application.config.assets.precompile += %w( widgets.js )
+Rails.application.config.assets.precompile += %w( main.js )

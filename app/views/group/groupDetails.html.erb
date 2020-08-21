@@ -1,0 +1,786 @@
+
+
+<!------------------------------------>
+
+
+
+
+
+<!----------------------------------------------------------------------------------------------->
+
+
+
+
+<!html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ela Admin - HTML5 Admin Template</title>
+  <meta name="description" content="Ela Admin - HTML5 Admin Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
+  <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+  <%= stylesheet_link_tag "style" %>
+  <%= stylesheet_link_tag "cs-skin-elastic" %>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+
+
+  <style>
+
+
+
+    .entry:not(:first-of-type)
+    {
+      margin-top: 10px;
+    }
+
+    .glyphicon
+    {
+      font-size: 12px;
+    }
+
+    .files input {
+      outline: 2px dashed #92b0b3;
+      outline-offset: -10px;
+      -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      padding: 120px 0px 85px 35%;
+      text-align: center !important;
+      margin: 0;
+      width: 100% !important;
+    }
+    .files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+      -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+    }
+    .files{ position:relative}
+    .files:after {  pointer-events: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 50px;
+      right: 0;
+      height: 56px;
+      content: "";
+      background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+      display: block;
+      margin: 0 auto;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .color input{ background-color:#f1f1f1;}
+    .files:before {
+      position: absolute;
+      bottom: 10px;
+      left: 0;  pointer-events: none;
+      width: 100%;
+      right: 0;
+      height: 57px;
+      content: " or drag it here. ";
+      display: block;
+      margin: 0 auto;
+      color: #2ea591;
+      font-weight: 600;
+      text-transform: capitalize;
+      text-align: center;
+    }
+
+
+
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes animatezoom {
+      from {transform: scale(0)}
+      to {transform: scale(1)}
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+
+
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes animatezoom {
+      from {transform: scale(0)}
+      to {transform: scale(1)}
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+
+
+  </style>
+</head>
+
+<body>
+<!-- Left Panel -->
+
+<%#= stylesheet_link_tag "style" %>
+<%#= stylesheet_link_tag "cs-skin-elastic" %>
+
+<aside id="left-panel" class="left-panel " style="margin-top: 50px"  >
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <div id="main-menu" class="main-menu collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+        <li class="active">
+
+          <a href="/notices" style="text-decoration: none" ><i class="menu-icon fa fa-laptop"></i> Dashboard</a>
+
+        </li>
+        <li class="menu-title">Menu</li><!-- /.menu-title -->
+
+        <% if current_user.role!="student"   %>
+
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="menu-icon fa fa-file"></i>Notices</a>
+            <ul class="sub-menu children dropdown-menu">
+
+              <li><i class="fa fa-upload"></i><a href="notices/new">Create Notice</a></li>
+              <% if current_user.role != "staff" %>
+                <li><i class="fa fa-paper-plane"></i><a href= "/notices/sendcircular" >Send Notice</a></li>
+              <% end %>
+              <% if current_user.role == "faculty" %>
+                <li><i class="fa fa-paper-plane"></i><a href= "/notices_dashboard/myNotices" >My Notices</a></li>
+              <% end %>
+              <li><i class="fa fa-bars"></i><a href="/notices_dashboard/myUploads">My Uploads</a></li>
+              <% if current_user.role != "staff" %>
+                <li><i class="fa fa-history"></i><a href="/notices_dashboard/mySents">My Sents</a></li>
+              <% end %>
+            </ul>
+          </li>
+
+        <% end %>
+
+
+        <% if current_user.role != "student" and current_user.role != "staff"  %>
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="menu-icon fa fa-users"></i>Groups Option</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="fa fa-user-plus"></i><a href="/group/group_home">Create Group</a></li>
+              <li><i class="fa fa-info"></i><a href="/group/groupDetails">Group Details</a></li>
+            </ul>
+          </li>
+        <% end %>
+        <li class="menu-item-has-children dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="menu-icon fa fa-ticket"></i>Leave Applications</a>
+          <ul class="sub-menu children dropdown-menu">
+            <%if current_user.role !="hod" %>
+              <li><i class="menu-icon fa fa-bar-chart"></i><a href="/leave_forms/leaves_stats">Leave Stats</a></li>
+            <%end %>
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/cl_form">CL Form</a></li>
+
+            <% if Leave.find_by_applicantid(current_user.registration_id).ch > 0  %>
+
+              <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/ch_form">CH Form</a></li>
+            <% end %>
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/rh_form">RH Form</a></li>
+
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/pl_form">Other Leave Form</a></li>
+            <%if current_user.role !="hod" %>
+              <li><i class="menu-icon fa fa-check"></i><a href="/leave_forms/my_approved_transactions">My Approved Leaves</a></li>
+              <li><i class="menu-icon fa fa-ban"></i><a href="/leave_forms/my_rejected_transactions">My Rejected Leaves</a></li>
+              <li><i class="menu-icon fa fa-ban"></i><a href="/leave_forms/leaveCancellationApply">Apply for Leave Cancellation</a></li>
+            <%end %>
+          </ul>
+
+
+        </li>
+        <li class="">
+          <a href="/notices_dashboard/show_restricted_holiday" class="" aria-expanded="false">
+            <i class="menu-icon fa fa-calendar"></i>Restricted Holidays</a>
+        </li>
+        <% if current_user.role == "hod" or incharge %>
+          <li class="menu-title">Admin</li><!-- /.menu-title -->
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="menu-icon fa fa-ticket"></i>Parental Controls</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="menu-icon fa fa-calendar"></i><a href="/admin_page/AllLeaveStats">All Leave Stats</a></li>
+              <li><i class="menu-icon fa fa-calendar"></i><a href="/notices_dashboard/restricted_holiday_list">Update Restricted Holiday List</a></li>
+              <li><i class="menu-icon fa fa-exchange"></i><a href="/admin_page/incharge_allot">Make Incharge</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/personOnLeaveCalendar">Faculty on Leave</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/grantCH">Grant CH</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/leaveCancelRequest">Leave Cancellation Request</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/notices_dashboard/csv">Generate Last month leave report</a></li>
+
+
+            </ul>
+          </li>
+
+
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="menu-icon fa fa-bell"></i>Notifications</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="menu-icon fa fa-bell"></i><a href="/notices/all_notices">User Verification</a></li>
+              <li><i class="menu-icon fa fa-bell"></i><a href="/notices/all_leave_applicants">Leave Approval</a></li>
+
+            </ul>
+          </li>
+        <% end %>
+
+
+        <li class="menu-title">Account</li><!-- /.menu-title -->
+        <li class="">
+          <a href="/users/sign_out" class="" aria-expanded="false">
+            <i class="menu-icon fa fa-sign-out"></i>Logout</a>
+        </li>
+        <br><br><br><br><br><br><br><br><br><br>.
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </nav>
+</aside>
+<!-- /#left-panel -->
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+  <header id="header" class="header logomain " style="height: 100px" >
+    <div class="top-left logomain" >
+      <div class="navbar-header logomain" >
+
+        <a class="navbar-brand logomain"  href="./">
+
+          <img src="/images/nitklogo.png" class="logomain" style=" height: 50px; margin-top: 20px" alt="Logo"></a>
+        <a class="navbar-brand hidden" href="./"><img src="/images/logo2.png" alt="Logo"></a>
+        <a id="menuToggle" class="menutoggle" ><i class="fa fa-bars"></i></a>
+      </div>
+    </div>
+
+    <% if current_user.role=="hod" or current_user.role=="Hod" %>
+
+      <div class="top-right">
+        <div class="header-menu">
+          <div class="header-left">
+            <%
+              @countUnverifiedAccounts=User.where("isVerifiedByAdmin=0")
+              @cnt=0
+              @userList=[]
+              @countUnverifiedAccounts.each do |account|
+                @cnt+=1
+                @userList.push(account)
+              end
+
+            %>
+
+            <div class="dropdown for-notification">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bell"></i>
+                <span class="count bg-danger"><%= @cnt %></span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="notification">
+
+                <p class="red">You have <%= @cnt %> Notification</p>
+                <% @userList.each do |u| %>
+                  <a class="dropdown-item media" href="/testing/notices/<%=u.id %>">
+                    <i class="fa fa-check"></i>
+                    <p>Activate Account for <%= u.username %></p>
+                  </a>
+                <% end %>
+
+              </div>
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+    <% end %>
+  </header>
+  <!-- /#header -->
+  <!-- Content -->
+  <div class="content">
+    <!-- Animated -->
+    <div class="animated fadeIn">
+      <!-- Widgets  -->
+
+      <!-- /Widgets -->
+      <!--  Traffic  -->
+      <div class="row" style="margin-top: 0px">
+        <div class="col-lg-12">
+          <div class="card" style="margin-top: 10px">
+
+
+
+            <div class="card-body">
+
+
+
+             <span style="font-family: sans-serif; ">
+            <% flash.each do |name, message| %>
+              <%= content_tag(:div,message,class: "sufee-alert alert with-close alert-primary alert-dismissible fade show #{name}") %>
+               <% end %>
+               </span>
+
+
+
+              <center>
+                <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                  <span class="badge badge-pill badge-primary" style="font-size: 20px"> Group Details</span>
+                </div>
+              </center>
+
+              <!------------------------------------------------------------------------------->
+
+
+
+                <div class="alert alert-info">
+                  <strong>Info!</strong> Groups created by you only are visible to you.
+                </div>
+
+              <div class="container" style="margin-top: 50px">
+                <div class="row">
+                  <div class="col-12">
+                    <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                        <th scope="col">Sr. no.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Created by</th>
+                        <th scope="col">Members count</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <% cnt=1%>
+                      <% member_cnt=0 %>
+                      <% @group.each do |group| %>
+
+                        <% @obj=GroupDatum.where("group_name_ref=(?)",group.group_name) %>
+                        <% @obj.each do |o| %>
+                          <% member_cnt+=1 %>
+                        <% end %>
+
+
+                        <tr>
+                          <th scope="row"><%= cnt %></th>
+                          <% cnt+=1 %>
+                          <td><%= group.group_name %></td>
+                          <td><%= group.created_by %></td>
+                          <td><%= member_cnt %> </td>
+                          <td>
+                            <div class="row" >
+                              <div class="col-3">
+
+                                <a style="height: 0px"  href="<%= group.group_name %>" ><button type="button" class="btn btn-primary" ><i class="fa fa-eye" style="color: white"></i></button></a>
+                              </div>
+
+                              <div class="col-3">
+                                <form action="delete_group_btn" method="get" >
+                                  <input id="group" name="group" type="text" value="<%= group.group_name %>"  hidden/>
+                                  <button type="submit"  value="Submit" class="btn btn-danger" ><i class="fa fa-trash"></i></button>
+                                </form>
+                              </div>
+
+                            </div>
+                          </td>
+                        </tr>
+                        <% member_cnt=0 %>
+
+                      <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!------------------------------------------------------------------------------->
+
+
+
+
+
+            </div>
+
+
+          </div>
+        </div><!-- /# column -->
+      </div>
+    </div>
+  </div> <!-- /.card-body -->
+</div><!-- /.card -->
+
+<!-- /#right-panel -->
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+
+
+
+
+<!--Local Stuff-->
+<script>
+    jQuery(document).ready(function($) {
+        "use strict";
+        // Bar Chart #flotBarChart
+
+    });
+
+    $.noConflict();
+
+    jQuery(document).ready(function($) {
+
+        "use strict";
+
+        [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+            new SelectFx(el);
+        });
+
+        jQuery('.selectpicker').selectpicker;
+
+
+
+
+        $('.search-trigger').on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $('.search-trigger').parent('.header-left').addClass('open');
+        });
+
+        $('.search-close').on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $('.search-trigger').parent('.header-left').removeClass('open');
+        });
+
+        $('.equal-height').matchHeight({
+            property: 'max-height'
+        });
+
+
+
+
+        // Menu Trigger
+        $('#menuToggle').on('click', function(event) {
+            var windowWidth = $(window).width();
+            if (windowWidth<1010) {
+                $('body').removeClass('open');
+                if (windowWidth<760){
+                    $('#left-panel').slideToggle();
+                } else {
+                    $('#left-panel').toggleClass('open-menu');
+                }
+            } else {
+                $('body').toggleClass('open');
+                $('#left-panel').removeClass('open-menu');
+            }
+
+        });
+
+
+        $(".menu-item-has-children.dropdown").each(function() {
+            $(this).on('click', function() {
+                var $temp_text = $(this).children('.dropdown-toggle').html();
+                $(this).children('.sub-menu').prepend('<li class="subtitle">' + $temp_text + '</li>');
+            });
+        });
+
+
+        // Load Resize
+        $(window).on("load resize", function(event) {
+            var windowWidth = $(window).width();
+            if (windowWidth<1010) {
+                $('body').addClass('small-device');
+            } else {
+                $('body').removeClass('small-device');
+            }
+
+        });
+
+
+    });
+
+    // Get the modal
+
+
+
+</script>
+<script>
+    var x,x1;
+    x = document.getElementById("myDIV");
+    x1 = document.getElementById("myDIV1");
+    function myFunction() {
+
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            x1.style.display = "none";
+        } else {
+            x.style.display = "none";
+            x1.style.display = "block";
+        }
+    }
+
+    function myFunction1() {
+
+        if (x1.style.display === "none") {
+            x1.style.display = "block";
+            x.style.display = "none";
+        } else {
+            x1.style.display = "none";
+            x.style.display = "block";
+        }
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
+</body>
+</html>

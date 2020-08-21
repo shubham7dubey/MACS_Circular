@@ -1,125 +1,577 @@
 
 
 
+
+
+
+<!------------------------------------------------------------->
+
+
+
+
+
+
+
+<!---------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+<!html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ela Admin - HTML5 Admin Template</title>
+  <meta name="description" content="Ela Admin - HTML5 Admin Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<style>
-	
-.entry:not(:first-of-type)
-{
-    margin-top: 10px;
-}
+  <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
+  <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
 
-.glyphicon
-{
-    font-size: 12px;
-}
-</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+  <script type='text/javascript'>
+
+      (function()
+      {
+          if( window.localStorage )
+          {
+              if( !localStorage.getItem('firstLoad') )
+              {
+                  localStorage['firstLoad'] = true;
+                  window.location.reload();
+              }
+              else
+                  localStorage.removeItem('firstLoad');
+          }
+      })();
+
+  </script>
 
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-        <div class="mx-auto order-0">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+  <style>
 
 
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> 
 
-            <li><a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white" href="/users/sign_out"> Logout</a></a></li>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    .entry:not(:first-of-type)
+    {
+      margin-top: 10px;
+    }
 
+    .glyphicon
+    {
+      font-size: 12px;
+    }
+
+    .files input {
+      outline: 2px dashed #92b0b3;
+      outline-offset: -10px;
+      -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      padding: 120px 0px 85px 35%;
+      text-align: center !important;
+      margin: 0;
+      width: 100% !important;
+    }
+    .files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+      -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+    }
+    .files{ position:relative}
+    .files:after {  pointer-events: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 50px;
+      right: 0;
+      height: 56px;
+      content: "";
+      background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+      display: block;
+      margin: 0 auto;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .color input{ background-color:#f1f1f1;}
+    .files:before {
+      position: absolute;
+      bottom: 10px;
+      left: 0;  pointer-events: none;
+      width: 100%;
+      right: 0;
+      height: 57px;
+      content: " or drag it here. ";
+      display: block;
+      margin: 0 auto;
+      color: #2ea591;
+      font-weight: 600;
+      text-transform: capitalize;
+      text-align: center;
+    }
+  </style>
 </head>
-<!------ Include the above in your HEAD tag ---------->
-<body >
+
+<body>
+<!-- Left Panel -->
 
 
 
-<div class="container" style="margin-top: 5%">
-  <div class="row">
-    <div class="form-group">
-      
-      <br>
-      <div class="col-sm-10">
-        <div class="dynamic-wrap">
-          <!--<form role="form" autocomplete="off">-->
-          	<%= form_tag group_create_group_function_path do %>
-          	<p>Enter group name</p>
-          		<div class="span">
-              
-                   <input id="id"  type="text" name="g_name" required="required"> 
+<aside id="left-panel" class="left-panel " style="margin-top: 50px;width: 290px"  >
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <div id="main-menu" class="main-menu collapse navbar-collapse">
+      <ul class="nav navbar-nav">
 
-                </div>
-          		
-          		<%= submit_tag "Create",class: "btn btn-info" %> <p> [Note:- Please enter email id and then create group] </p>
-               
-          	</div>
-          	
-          	<br>
-            <div class="entry input-group">
-              <input class="form-control " name="fields[]" id="em" type="text" placeholder="Email id" required="required" />
-             	
-              <span class="input-group-btn">
-               
-                <button class="btn btn-success btn-add " type="button">
-                        <span class="glyphicon glyphicon-plus"></span>
-                </button>
-              </span>
-            </div>
-             
+        <li class="active">
 
+          <a href="/notices" style="text-decoration: none" ><i class="menu-icon fa fa-laptop"></i> Dashboard</a>
+
+        </li>
+        <li class="menu-title">Menu</li><!-- /.menu-title -->
+
+        <% if current_user.role!="student"   %>
+
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none">
+              <i class="menu-icon fa fa-file"></i>Notices</a>
+            <ul class="sub-menu children dropdown-menu">
+              <% if current_user.role != "staff" %>
+                <li><i class="fa fa-paper-plane" ></i><a href="sendcircular" style="text-decoration: none" >Send Notice</a></li>
+              <% end %>
+              <li><i class="fa fa-bars"></i><a href="/notices_dashboard/myUploads" style="text-decoration: none">My Uploads</a></li>
+              <% if current_user.role != "staff" %>
+                <li><i class="fa fa-history"></i><a href="/notices_dashboard/mySents" style="text-decoration: none">My Sents</a></li>
+              <% end %>
+            </ul>
+          </li>
+
+        <% end %>
+
+
+        <% if current_user.role != "student" and current_user.role != "staff"  %>
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none">
+              <i class="menu-icon fa fa-users"></i>Groups Option</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="fa fa-user-plus"></i><a href="/group/group_home" style="text-decoration: none">Create Group</a></li>
+              <li><i class="fa fa-info"></i><a href="/group/groupDetails" style="text-decoration: none">Group Details</a></li>
+            </ul>
+          </li>
+        <% end %>
+        <li class="menu-item-has-children dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none" >
+            <i class="menu-icon fa fa-ticket"></i>Leave Applications </a>
+          <ul class="sub-menu children dropdown-menu">
+            <%if current_user.role !="hod" %>
+              <li><i class="menu-icon fa fa-bar-chart"></i><a href="/leave_forms/leaves_stats">Leave Stats</a></li>
+            <%end %>
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/cl_form" style="text-decoration: none" >CL Form</a></li>
+
+            <% if Leave.find_by_applicantid(current_user.registration_id).ch > 0  %>
+
+              <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/ch_form" style="text-decoration: none" >CH Form</a></li>
             <% end %>
-          <!--</form>-->
-          <br>
-          <small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another form field :)</small>
-        </div>
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/rh_form" style="text-decoration: none" >RH Form</a></li>
+
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/pl_form" style="text-decoration: none" >Other Leave Form</a></li>
+            <%if current_user.role !="hod" %>
+              <li><i class="menu-icon fa fa-check"></i><a href="/leave_forms/my_approved_transactions" style="text-decoration: none" >My Approved Leaves</a></li>
+              <li><i class="menu-icon fa fa-ban"></i><a href="/leave_forms/my_rejected_transactions" style="text-decoration: none" >My Rejected Leaves</a></li>
+              <li><i class="menu-icon fa fa-ban"></i><a href="/leave_forms/leaveCancellationApply" style="text-decoration: none" >Apply for Leave Cancellation</a></li>
+            <%end %>
+          </ul>
+        </li>
+        <li class="">
+          <a href="/notices_dashboard/show_restricted_holiday" class="" aria-expanded="false" style="text-decoration: none">
+            <i class="menu-icon fa fa-calendar"></i>Restricted Holidays</a>
+        </li>
+        <% if current_user.role == "hod" or incharge %>
+          <li class="menu-title">Admin</li><!-- /.menu-title -->
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="text-decoration: none">
+              <i class="menu-icon fa fa-ticket"></i>Parental Controls</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="menu-icon fa fa-calendar"></i><a href="/admin_page/AllLeaveStats"  style="text-decoration: none" >All Leave Stats</a></li>
+              <li><i class="menu-icon fa fa-calendar"></i><a href="/notices_dashboard/restricted_holiday_list"  style="text-decoration: none" >Update Restricted Holiday List</a></li>
+              <li><i class="menu-icon fa fa-exchange"></i><a href="/admin_page/incharge_allot"  style="text-decoration: none" >Make Incharge</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/personOnLeaveCalendar"  style="text-decoration: none" >Faculty on Leave</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/grantCH"  style="text-decoration: none" >Grant CH</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/leaveCancelRequest"  style="text-decoration: none" >Leave Cancellation Request</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/notices_dashboard/csv"  style="text-decoration: none" >Generate Last month leave report</a></li>
+
+
+            </ul>
+          </li>
+
+
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none" >
+              <i class="menu-icon fa fa-bell"></i>Notifications</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="menu-icon fa fa-bell"></i><a href="/notices/all_notices"   style="text-decoration: none">User Verification</a></li>
+              <li><i class="menu-icon fa fa-bell"></i><a href="/notices/all_leave_applicants"  style="text-decoration: none" >Leave Approval</a></li>
+
+            </ul>
+          </li>
+        <% end %>
+
+        <li class="menu-title">Account</li><!-- /.menu-title -->
+        <li class="">
+          <a href="/users/sign_out" class="" aria-expanded="false" style="text-decoration: none">
+            <i class="menu-icon fa fa-sign-out"></i>Logout</a>
+        </li>
+        <br><br><br><br><br><br>.
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+</aside>
+<!-- /#left-panel -->
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+  <header id="header" class="header logomain " style="height: 100px" >
+    <div class="top-left logomain" >
+      <div class="navbar-header logomain" >
+
+        <a class="navbar-brand logomain"  href="./">
+
+          <img src="/images/nitklogo.png" class="logomain" style=" height: 50px; margin-top: 20px" alt="Logo"></a>
+        <a class="navbar-brand hidden" href="./"><img src="/images/logo2.png" alt="Logo"></a>
+        <a id="menuToggle" class="menutoggle" ><i class="fa fa-bars"></i></a>
       </div>
     </div>
-  </div>
-</div>
 
-                         
+    <% if current_user.role=="hod" or current_user.role=="Hod" %>
+
+      <div class="top-right">
+        <div class="header-menu">
+          <div class="header-left">
+            <div class="dropdown for-notification">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bell"></i>
+                <span class="count bg-danger"><%= @cnt %></span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="notification">
+                <p class="red">You have <%= @cnt %> Notification</p>
+                <% @userList.each do |u| %>
+                  <a class="dropdown-item media" href="/testing/notices/<%=u.id %>">
+                    <i class="fa fa-check"></i>
+                    <p>Activate Account for <%= u.username %></p>
+                  </a>
+                <% end %>
+
+              </div>
+            </div>
 
 
-<script type="text/javascript">
-	
-	$(function() {
-  $(document).on('click', '.btn-add', function(e) {
-    e.preventDefault();
+          </div>
 
-    var dynaForm = $('.dynamic-wrap form:first'),
-      currentEntry = $(this).parents('.entry:first'),
-      newEntry = $(currentEntry.clone()).appendTo(dynaForm);
- 		
-    newEntry.find('input').val('');
-    dynaForm.find('.entry:not(:last) .btn-add')
-      .removeClass('btn-add').addClass('btn-remove')
-      .removeClass('btn-success').addClass('btn-danger')
-      .html('<span class="glyphicon glyphicon-minus"></span>');
-  }).on('click', '.btn-remove', function(e) {
-    $(this).parents('.entry:first').remove();
 
-    e.preventDefault();
-    return false;
-  });
-});
+
+        </div>
+      </div>
+    <% end %>
+  </header>
+  <!-- /#header -->
+  <!-- Content -->
+  <div class="content">
+    <!-- Animated -->
+    <div class="animated fadeIn">
+      <!-- Widgets  -->
+
+      <!-- /Widgets -->
+      <!--  Traffic  -->
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+          <div class="card">
+
+
+
+            <div class="card-body">
+
+
+
+            <span style="font-family: sans-serif; ">
+                <% if flash[:notice] %>
+                <div class="notice sufee-alert alert alert-info alert-dismissible  "><button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:notice] %></div>
+                <% end %>
+                <% if flash[:error] %>
+                <div class="notice sufee-alert alert alert-danger alert-dismissible  "><button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:error] %></div>
+                <% end %>
+                <% if flash[:success] %>
+                <div class="notice sufee-alert alert alert-success alert-dismissible   "><button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:success] %></div>
+                <% end %>
+            </span>
+
+
+
+
+
+              <!------------------------------------------------------------------------------->
+
+              <div class="alert alert-info">
+                <strong>For Making Group Using CSV!</strong> Make sure that the csv file is generated by google contacts.
+              </div>
+              <div class="container" style="margin-top: 50px">
+                <center>
+                  <button onclick="myFunction()" class="btn btn-info">By custom Emails</button> &nbsp&nbsp&nbsp&nbsp&nbsp
+                  <button onclick="myFunction1()" class="btn btn-info">Using csv file</button>
+                </center>
+              </div>
+              <div id="myDIV" style="display: none;margin-bottom: 150px">
+
+                <div class="container" style="margin-top: 1%">
+
+
+                  <div class="form-group">
+
+                    <br>
+                    <div class="col-sm-10">
+                      <div class="dynamic-wrap">
+                        <!--<form role="form" autocomplete="off">-->
+                        <%= form_tag group_create_group_function_path do %>
+                          <p>Enter group name</p>
+                          <div class="span">
+                            <div class="row" >
+                              <div class="col-8">
+                                <input id="id"  type="text" name="g_name" required="required" class="form-control">
+                              </div>
+
+
+                            </div>
+                            <div class="entry input-group">
+              <textarea class="form-control" type="textarea" name="fields[]"  id="em" type="text"
+                        placeholder="For multiple Email ID use comma seperater" required="required" cols="30" rows="10"  ></textarea>
+                              <div class="col-4" >
+                                <%= submit_tag "Create",class: "btn btn-info" %> <p> [Note:- Please enter email id and then create group] </p>
+                              </div>
+
+                            </div>
+
+
+                        <% end %>
+                        <!--</form>-->
+                        </div>
+                      </div>
+
+
+
+
+                    </div>
+
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div id="myDIV1" style="display: none;margin-top: 50px">
+                <%#= render 'form', notice: "group/create_from_csv" %>
+                <%= form_tag group_create_from_csv_path, multipart: true, class: "form-inline" do%>
+
+
+                  <div class="container">
+
+                    <input id="id" class="form-control" type="text" name="gc_name" placeholder="Group name" required="required">
+
+
+                    <%= file_field_tag :file %>
+                    <br><br>
+                    <%= submit_tag "Create Group from CSV" ,class: "btn btn-info" %>
+                  </div>
+                <% end %>
+              </div>
+
+
+
+
+
+              <!------------------------------------------------------------------------------->
+
+
+
+
+
+            </div>
+
+
+          </div>
+        </div><!-- /# column -->
+      </div>
+    </div>
+  </div> <!-- /.card-body -->
+</div><!-- /.card -->
+
+<!-- /#right-panel -->
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+
+
+
+
+
+<!--Local Stuff-->
+<script>
+    jQuery(document).ready(function($) {
+        "use strict";
+        // Bar Chart #flotBarChart
+
+    });
+
+    $.noConflict();
+
+    jQuery(document).ready(function($) {
+
+        "use strict";
+
+        [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+            new SelectFx(el);
+        });
+
+        jQuery('.selectpicker').selectpicker;
+
+
+
+
+        $('.search-trigger').on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $('.search-trigger').parent('.header-left').addClass('open');
+        });
+
+        $('.search-close').on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $('.search-trigger').parent('.header-left').removeClass('open');
+        });
+
+        $('.equal-height').matchHeight({
+            property: 'max-height'
+        });
+
+
+        // Counter Number
+        $('.count').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 3000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+
+
+
+
+        // Menu Trigger
+        $('#menuToggle').on('click', function(event) {
+            var windowWidth = $(window).width();
+            if (windowWidth<1010) {
+                $('body').removeClass('open');
+                if (windowWidth<760){
+                    $('#left-panel').slideToggle();
+                } else {
+                    $('#left-panel').toggleClass('open-menu');
+                }
+            } else {
+                $('body').toggleClass('open');
+                $('#left-panel').removeClass('open-menu');
+            }
+
+        });
+
+
+        $(".menu-item-has-children.dropdown").each(function() {
+            $(this).on('click', function() {
+                var $temp_text = $(this).children('.dropdown-toggle').html();
+                $(this).children('.sub-menu').prepend('<li class="subtitle">' + $temp_text + '</li>');
+            });
+        });
+
+
+        // Load Resize
+        $(window).on("load resize", function(event) {
+            var windowWidth = $(window).width();
+            if (windowWidth<1010) {
+                $('body').addClass('small-device');
+            } else {
+                $('body').removeClass('small-device');
+            }
+
+        });
+
+
+    });
+
+    // Get the modal
+
+
 
 </script>
+<script>
+    var x,x1;
+    x = document.getElementById("myDIV");
+    x1 = document.getElementById("myDIV1");
+    function myFunction() {
 
 
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            x1.style.display = "none";
+        } else {
+            x.style.display = "none";
+            x1.style.display = "block";
+        }
+    }
 
+    function myFunction1() {
 
-
+        if (x1.style.display === "none") {
+            x1.style.display = "block";
+            x.style.display = "none";
+        } else {
+            x1.style.display = "none";
+            x.style.display = "block";
+        }
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 </body>
+</html>

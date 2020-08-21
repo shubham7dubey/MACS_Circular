@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inchargeid: MyString
+  dateto: 2020-02-16
+  datefrom: 2020-02-16
+
+two:
+  inchargeid: MyString
+  dateto: 2020-02-16
+  datefrom: 2020-02-16

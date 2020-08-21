@@ -1,0 +1,2 @@
+class Dynamicleavecancel < ApplicationRecord
+end

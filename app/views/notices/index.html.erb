@@ -1,177 +1,608 @@
 
 
 
+<!html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MACS Circular</title>
+  <meta name="description" content="Ela Admin - HTML5 Admin Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-        <div class="mx-auto order-0">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-            
+  <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
+  <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
 
-             
-              <% if current_user.role=='Hod' or current_user.role=='hod' or current_user.role=='staff' or current_user.role=='Staff' %>
-            
-              <li> <a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white"  href="notices/new">Create Notice</a></a></li>
-            &nbsp
-             <%end%>
-              <% if current_user.role=='Hod' or current_user.role=='hod' %>
-            <li> <a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white"  href="group/group_home">Create Group</a></a></li>
-            &nbsp
-            <li> <a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white"  href="group/group_delete">Delete Group</a></a></li>
-            &nbsp
-              <% end %>
-             
-            <li><a ><a class="btn btn-info ml-auto mr-1 btn-md bg-info" style="color: white" href="users/sign_out"> Logout</a></a></li>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
 
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+  <link href="/style.css" rel="stylesheet" />
 </head>
 
 <body>
+<!-- Left Panel -->
+
+<%#= stylesheet_link_tag "style" %>
+<%#= stylesheet_link_tag "cs-skin-elastic" %>
+
+<% incharge_list = [] %>
+<% Inchargedetail.all.each do |obj| %>
+<% incharge_list.append(obj.inchargeid) %>
+<% end %>
+
+<% incharge= incharge_list.include? current_user.registration_id %>
 
 
-
-
-
-<p id="notice"><%= notice %></p>
-
-
-<div style="color:black;">
-
-  <% if current_user.role =='admin' or current_user.role=='admin' %>
-  <div>
-  <%= form_tag notices_reg_id_path do %>
-  <p>Enter ID</p>
-  <%= text_field_tag(:regid) %>
-  <br>
-  <%= submit_tag "search" %>
-
+<% if incharge %>
+<% data = Inchargedetail.find_by_inchargeid(current_user.registration_id) %>
+<% if Date.today <= data.dateto and Date.today >= data.datefrom %>
+     <% incharge = true %>
+<% else %>
+    <% data.delete %>
+    <% incharge = false %>
   <% end %>
-
-  <%= @id %>
- </div>
-
-
-
-
-
-  
-  <% end %>
-
-
-<center><h1 style="font-family: consolas">Notices</h1>
-<div class="table-responsive">
-<table class="table" border="2px">
-  <thead>
-    <tr>
-      <th>Notice ID</th>
-      <th class="danger">Circular title</th>
-      <th>Select file</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    
-  </tbody><% @notices.each do |notice| %>
-      
-      <tr>
-        <% if current_user.role =='hod' or current_user.role =='Hod' %>
-        <td><%= notice.id %></td>
-        <td><%= notice.Circular_Title %></td>
-        <% else %>
-        <td> <%= notice.Circular_Title %></td>
-        <% end %>
-        <td><%= notice.Select_File %></td>
-        <td><%= link_to 'Show', notice %></td>
-        <% if  current_user.role =='hod' or current_user.role =='Hod' %>
-        <td><%= link_to 'Edit', edit_notice_path(notice) %></td>
-        <td><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-</table></center> 
-</div>
-<p style="color: black;" >
-</p>
-<br>
-
-
-
-<style >
-  
-.button {
-
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 15px 50px;
-  cursor: pointer;
-  border-radius: 12px;
-  margin-right: 15px;
-} 
-
-
-
-</style>
-
-
-<br>
-
-<% if current_user.role =='hod' or current_user.role=='Hod' or current_user.role=='faculty' or current_user.role=='Faculty'  %>
-
-
-<div class="container-fluid h-100" style="margin-bottom: 10%" >
-    <div class="row justify-content-center align-items-center h-100">
-        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-
- <%= form_tag notices_send_email_path do %>
- <span style="font-family: consolas;"><h5>Select Group</h5></span>
- <%= select("branch", "id", @list) %>
- <br><br>
-  <span style="font-family: consolas;" ><h5>Email</h5> </span>
- <input type="text" name="mail" class="custom-input-label"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z]+.[a-zA-Z]{2,4}[.]{0,1}[a-zA-Z]{0,2}">
-<br>
-
-
-
-<span style="font-size: 10px">[Only for sending email to specific person]</span>
-<br><br>
-<span style="font-family: consolas"> <h5>Enter notice id</h5></span>
-
-
-  <%= select("id", "id", @notice_list) %>
-<br>
-
- <%= submit_tag "send email",class: "btn btn-info button" %>
- <%end%>
-  
-</div>
-</div>
-</div>
-
-
 <% end %>
 
 
- 
-</div>
 
+<aside id="left-panel" class="left-panel " style="margin-top: 50px"  >
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <div id="main-menu" class="main-menu collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+        <li class="active">
+
+            <a href="/notices" style="text-decoration: none" ><i class="menu-icon fa fa-laptop"></i> Dashboard</a>
+
+        </li>
+        <li class="menu-title">Menu</li><!-- /.menu-title -->
+
+        <% if current_user.role!="student"   %>
+
+        <li class="menu-item-has-children dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="menu-icon fa fa-file"></i>Notices</a>
+          <ul class="sub-menu children dropdown-menu">
+
+            <li><i class="fa fa-upload"></i><a href="notices/new">Create Notice</a></li>
+            <% if current_user.role != "staff" %>
+            <li><i class="fa fa-paper-plane"></i><a href= "/notices/sendcircular" >Send Notice</a></li>
+            <% end %>
+            <% if current_user.role == "faculty" %>
+              <li><i class="fa fa-paper-plane"></i><a href= "/notices_dashboard/myNotices" >My Notices</a></li>
+            <% end %>
+            <li><i class="fa fa-bars"></i><a href="/notices_dashboard/myUploads">My Uploads</a></li>
+            <% if current_user.role != "staff" %>
+            <li><i class="fa fa-history"></i><a href="/notices_dashboard/mySents">My Sents</a></li>
+            <% end %>
+          </ul>
+        </li>
+
+          <% end %>
+
+
+        <% if current_user.role != "student" and current_user.role != "staff"  %>
+        <li class="menu-item-has-children dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="menu-icon fa fa-users"></i>Groups Option</a>
+          <ul class="sub-menu children dropdown-menu">
+            <li><i class="fa fa-user-plus"></i><a href="/group/group_home">Create Group</a></li>
+            <li><i class="fa fa-info"></i><a href="/group/groupDetails">Group Details</a></li>
+          </ul>
+        </li>
+          <% end %>
+        <li class="menu-item-has-children dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="menu-icon fa fa-ticket"></i>Leave Applications</a>
+          <ul class="sub-menu children dropdown-menu">
+            <%if current_user.role !="hod" %>
+            <li><i class="menu-icon fa fa-bar-chart"></i><a href="/leave_forms/leaves_stats">Leave Stats</a></li>
+              <%end %>
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/cl_form">CL Form</a></li>
+
+            <% if Leave.find_by_applicantid(current_user.registration_id).ch > 0  %>
+               
+              <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/ch_form">CH Form</a></li>
+              <% end %>
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/rh_form">RH Form</a></li>
+
+            <li><i class="menu-icon fa fa-th"></i><a href="/leave_forms/pl_form">Other Leave Form</a></li>
+            <%if current_user.role !="hod" %>
+            <li><i class="menu-icon fa fa-check"></i><a href="/leave_forms/my_approved_transactions">My Approved Leaves</a></li>
+            <li><i class="menu-icon fa fa-ban"></i><a href="/leave_forms/my_rejected_transactions">My Rejected Leaves</a></li>
+            <li><i class="menu-icon fa fa-ban"></i><a href="/leave_forms/leaveCancellationApply">Apply for Leave Cancellation</a></li>
+            <%end %>
+              </ul>
+
+
+        </li>
+        <li class="">
+          <a href="/notices_dashboard/show_restricted_holiday" class="" aria-expanded="false">
+            <i class="menu-icon fa fa-calendar"></i>Restricted Holidays</a>
+        </li>
+        <% if current_user.role == "hod" or incharge %>
+          <li class="menu-title">Admin</li><!-- /.menu-title -->
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="menu-icon fa fa-ticket"></i>Parental Controls</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="menu-icon fa fa-calendar"></i><a href="/admin_page/AllLeaveStats">All Leave Stats</a></li>
+              <li><i class="menu-icon fa fa-calendar"></i><a href="/notices_dashboard/restricted_holiday_list">Update Restricted Holiday List</a></li>
+              <li><i class="menu-icon fa fa-exchange"></i><a href="/admin_page/incharge_allot">Make Incharge</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/personOnLeaveCalendar">Faculty on Leave</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/grantCH">Grant CH</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/admin_page/leaveCancelRequest">Leave Cancellation Request</a></li>
+              <li><i class="menu-icon fa fa-suitcase"></i><a href="/notices_dashboard/csv">Generate Last month leave report</a></li>
+
+
+            </ul>
+          </li>
+
+
+          <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="menu-icon fa fa-bell"></i>Notifications</a>
+            <ul class="sub-menu children dropdown-menu">
+              <li><i class="menu-icon fa fa-bell"></i><a href="/notices/all_notices">User Verification</a></li>
+              <li><i class="menu-icon fa fa-bell"></i><a href="/notices/all_leave_applicants">Leave Approval</a></li>
+
+            </ul>
+          </li>
+        <% end %>
+      
+
+        <li class="menu-title">Account</li><!-- /.menu-title -->
+        <li class="">
+          <a href="/users/sign_out" class="" aria-expanded="false">
+            <i class="menu-icon fa fa-sign-out"></i>Logout</a>
+        </li>
+        <br><br><br><br><br><br><br><br><br><br>.
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </nav>
+</aside>
+<!-- /#left-panel -->
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+  <!-- Header-->
+  <header id="header" class="header logomain " style="height: 100px" >
+    <div class="top-left logomain" >
+      <div class="navbar-header logomain" >
+
+        <a class="navbar-brand logomain"  href="./">
+          <%#= image_tag("rss.jpg", :alt => "Logo") %>
+          <img src="/images/nitklogo.png" class="logomain" style=" height: 50px; margin-top: 20px" alt="Logo"></a>
+        <a class="navbar-brand hidden" href="./"><img src="/images/logo2.png" alt="Logo"></a>
+        <a id="menuToggle" class="menutoggle" ><i class="fa fa-bars"></i></a>
+      </div>
+    </div>
+
+    <% if current_user.role=="hod"  or incharge %>
+
+    <div class="top-right">
+      <div class="header-menu">
+        <div class="header-left">
+          <div class="dropdown for-notification">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-bell"></i>
+              <span class="count bg-danger"><%= @cnt %></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="notification">
+              <p class="red">You have <%= @cnt %> Notification</p>
+              <% @userList.each do |u| %>
+              <a class="dropdown-item media" href="/testing/notices/<%=u.id %>">
+                <i class="fa fa-check"></i>
+                <p>Activate Account for <%= u.username %></p>
+              </a>
+              <% end %>
+
+
+            </div>
+          </div>
+
+          <% @obj = Leaveapprovaldetail.all %>
+          <% @cnt1=0 %>
+          <% @obj.each do |a| %>
+          <% @cnt1+=1 %>
+            <% end %>
+
+          <div class="dropdown for-notification">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-car"></i>
+              <span class="count bg-danger"><%= @cnt1 %></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="notification">
+              <p class="red">You have <%= @cnt1 %> Leave Notification</p>
+              <% @obj.each do |u| %>
+                <a class="dropdown-item media" href="/notices/all_leave_applicants">
+                  <i class="fa fa-check"></i>
+                  <p>Approve Leave for <%= User.find_by_registration_id(u.applicantid).username %></p>
+                </a>
+              <% end %>
+
+
+            </div>
+          </div>
+          
+        </div>
+
+
+
+      </div>
+    </div>
+    <% end %>
+  </header>
+  <!-- /#header -->
+  <!-- Content -->
+  <div class="content">
+    <!-- Animated -->
+    <div class="animated fadeIn">
+      <!-- Widgets  -->
+
+      <!-- /Widgets -->
+      <!--  Traffic  -->
+      <div class="row" style="margin-top: 30px">
+        <div class="col-lg-12">
+          <div class="card">
+
+
+
+            <div class="card-body">
+              <span style="font-family: sans-serif; ">
+
+                <% if flash[:notice] %>
+                <div class="notice sufee-alert alert alert-info alert-dismissible  "><button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:notice] %></div>
+                <% end %>
+                <% if flash[:error] %>
+                <div class="notice sufee-alert alert alert-danger alert-dismissible  "><button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:error] %></div>
+                <% end %>
+                <% if flash[:success] %>
+                <div class="notice sufee-alert alert alert-success alert-dismissible   "><button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:success] %></div>
+                <% end %>
+
+              </span>
+
+                 
+
+                  <% if  ( current_user.role=='faculty' or current_user.role=='Faculty' ) and !incharge   %>
+                    <center>
+                      <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                        <span class="badge badge-pill badge-primary" style="font-size: 20px"> Send Notice</span>
+                      </div>
+                      <%=  form_tag notices_send_email_path do %>
+
+
+                        <div class="row justify-content-center " style="margin-left: 0%; margin-top: 5%" >
+                          <div class="col-50"  style=""><span ><h5>Select Group</h5></span></div>
+                          <div class="col-50" style="" >
+                            <select id="id" class="custom-select" name = "branch" style="width: 200px; margin-left: 50px;margin-top: -10px" >
+                              <% @list.each do |data| %>
+                                <option><%= data %></option>
+                              <% end %>
+                            </select></div>
+                        </div>
+
+                        <br><br>
+                        <div class="row justify-content-center" style="margin-left: 0%; "  >
+                          <div class="col-50"  style=""><span ><h5>Select notice id</h5></span></div>
+                          <div class="col-50" style="margin-left: -30px" >
+                            <%#= select("id", "id", @notice_list) %>
+                            <select id="id" class="custom-select" name = "id" style="width: 150px; margin-left: 59px;margin-top: -10px"  >
+                              <% @notice_list.each do |data| %>
+                                <option><%= data %></option>
+                              <% end %>
+                            </select>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                          <span class="badge badge-pill badge-primary">Info</span>
+                          Enter email for sending email to specific person            </div>
+
+                        <br>
+
+                        <div class="row justify-content-center " style="" >
+
+                          <div class="col-50"  style=""><span ><h5>Email</h5></span></div>
+                          <div class="col-50" style="margin-left: 4%" > <input type="text" name="mail" class="form-control"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z]+.[a-zA-Z]{2,4}[.]{0,1}[a-zA-Z]{0,2}"></div>
+                        </div>
+
+                        <br>
+
+                        <!-------------------------------------------------->
+                        <!-- Button trigger modal -->
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Send Email</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Enter your email and password</h5>
+                              </div>
+                              <div class="modal-body">
+                                <input class="form-control" style="margin-top: 10px"  type="email" name="demail"  id="demail" placeholder = "Your Email" required autofocus />
+                                <input class="form-control" style="margin-top: 10px" type="password" name="dpass"  id="dpass" placeholder = "Password" required />
+                                <button type="submit"  value="Submit" class="btn btn-danger"  hidden><i class="fa fa-trash"></i></button>
+
+                              </div>
+                              <div class="modal-footer">
+
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Send Email</button>
+                              </div>
+                      <% end %>
+                      </div>
+                      </div>
+                      </div>
+                      <!-------------------------------------------------->
+
+
+
+                    </center>
+                  <% end %>
+                </div>
+
+                <% if current_user.role=='student' %>
+
+                    <div class="container" style="margin-top: 50px">
+                      <div class="text-center" ><h3> My Notices</h3>
+                      </div>
+                      <table class="table">
+                          <thead>
+                            <tr>
+
+                              <th>Notice ID</th>
+                              <th>Name</th>
+                              <th>Show</th>
+                            </tr>
+                          </thead>
+                          <tbody> </tbody>
+                          <% @notice_list1.each do |notice| %>
+                            <tr>
+
+                              <td><%= notice.id %></td>
+                              <td><%= notice.Circular_Title %></td>
+                              <td><%= link_to 'Show', notice %> </td>
+                            </tr>
+                          <% end %>
+                      </table>
+                    </div>
+                <% end %>
+
+                <% @tempVar="" %>
+
+
+
+                <% if current_user.role =='hod' or current_user.role =='Hod' or incharge  %>
+
+
+
+                    <div class="container" style="">
+                      <center>
+                        <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                          <span class="badge badge-pill badge-primary" style="font-size: 20px"> All Notices</span>
+                        </div>
+                      </center>
+                      <br>
+                      <table class="table">
+                        <thead>
+                          <tr>
+
+
+                            <th>Circular ID</th>
+                            <th>Circular Title</th>
+                            <th>Select File</th>
+                            <th>Show</th>
+                            <th>Edit</th>
+                            <th>Destroy</th>
+                          </tr>
+                        </thead>
+                        <tbody> </tbody>
+                        <%  @notices.each do |notice| %>
+                          <tr>
+
+                            <td><%= notice.id %></td>
+                            <td><%= notice.Circular_Title %></td>
+                            <td> <%= notice.Select_File %></td>
+                            <td><%= link_to 'Show', notice, target: :_blank  %></td>
+                            <td><%= link_to 'Edit', edit_notice_path(notice) %></td>
+                            <td><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                          </tr>
+                        <% end %>
+                      </table>
+                    </div>
+                <% end %>
+
+                <div id="id01" class="modal card " style="padding-top: 0px">
+
+                      <div class="container-fluid h-100" style="margin-bottom: 10%" >
+                        <div class="row justify-content-center align-items-center h-100">
+                          <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3  modal-content animate ">
+                              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                              <h3 class="text-center" style="margin-top: 20px"> Send Notice</h3>
+                              <%= form_tag notices_send_email_path do %>
+                                <span style="font-family: consolas;"><h5>Select Group</h5></span>
+                                <%= select("branch", "id", @list) %>
+
+                                <br><br>
+                                <span style="font-family: consolas;" ><h5>Email</h5> </span>
+                                <input type="text" name="mail" class="custom-input-label"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z]+.[a-zA-Z]{2,4}[.]{0,1}[a-zA-Z]{0,2}">
+                                <br>
+
+                                <span style="font-size: 10px">[Only for sending email to specific person]</span>
+                                <br><br>
+                                <span style="font-family: consolas"> <h5>Enter notice id</h5></span>
+                                <%= select("id", "id", @notice_list) %>
+                                <br>
+
+                                <%= submit_tag "send email",class: "btn btn-info button" %>
+                              <%end%>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
+
+
+
+            <div id="id01" class="modal card " style="padding-top: 50px">
+
+                <div class="container-fluid h-100" style="margin-bottom: 10%" >
+                  <div class="row justify-content-center align-items-center h-100">
+                    <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3  modal-content animate ">
+                      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                      <h3 class="text-center" style="margin-top: 20px"> Send Notice</h3>
+                      <%= form_tag notices_send_email_path do %>
+                        <span style="font-family: consolas;"><h5>Select Group</h5></span>
+                        <%= select("branch", "id", @list) %>
+                        <br><br>
+                        <span style="font-family: consolas;" ><h5>Email</h5> </span>
+                        <input type="text" name="mail" class="custom-input-label"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z]+.[a-zA-Z]{2,4}[.]{0,1}[a-zA-Z]{0,2}">
+                        <br>
+                        <span style="font-size: 10px">[Only for sending email to specific person]</span>
+                        <br><br>
+                        <span style="font-family: consolas"> <h5>Enter notice id</h5></span>
+                        <%= select("id", "id", @notice_list) %>
+                        <br>
+                        <%= submit_tag "send email",class: "btn btn-info button" %>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div class="card-body"></div>
+          </div>
+        </div><!-- /# column -->
+      </div>
+    </div>
+  </div> <!-- /.card-body -->
+</div><!-- /.card -->
+
+<!-- /#right-panel -->
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+
+
+
+<!--Local Stuff-->
+<script>
+    jQuery(document).ready(function($) {
+        "use strict";
+        // Bar Chart #flotBarChart
+
+    });
+
+    $.noConflict();
+
+    jQuery(document).ready(function($) {
+
+        "use strict";
+
+
+
+
+
+
+        $('.equal-height').matchHeight({
+            property: 'max-height'
+        });
+
+
+
+
+
+
+        // Menu Trigger
+        $('#menuToggle').on('click', function(event) {
+            var windowWidth = $(window).width();
+            if (windowWidth<1010) {
+                $('body').removeClass('open');
+                if (windowWidth<760){
+                    $('#left-panel').slideToggle();
+                } else {
+                    $('#left-panel').toggleClass('open-menu');
+                }
+            } else {
+                $('body').toggleClass('open');
+                $('#left-panel').removeClass('open-menu');
+            }
+
+        });
+
+
+        $(".menu-item-has-children.dropdown").each(function() {
+            $(this).on('click', function() {
+                var $temp_text = $(this).children('.dropdown-toggle').html();
+                $(this).children('.sub-menu').prepend('<li class="subtitle">' + $temp_text + '</li>');
+            });
+        });
+
+
+        // Load Resize
+        $(window).on("load resize", function(event) {
+            var windowWidth = $(window).width();
+            if (windowWidth<1010) {
+                $('body').addClass('small-device');
+            } else {
+                $('body').removeClass('small-device');
+            }
+
+        });
+
+
+    });
+
+       // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+     window.onclick = function(event) {
+           if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 </body>
-
-
+</html>

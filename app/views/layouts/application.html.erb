@@ -17,30 +17,48 @@
 </head>
    
 
-<body style="margin: 0px;padding: 0px;">
+<!--<body style="margin: 0px;padding: 0px;">-->
 
-<div class="jumbotron" style="margin-bottom: -20px;background-color: #415569;">
-  <div class="container"  >
-    
-    <h4 style="font-family: calibri;text-align: center;color: white;">National Institute Of Technology Karnataka , Surathkal</h4>
-    <h3 style="font-family: calibri;text-align: center;color: white;">Department Of Mathematical And Computational Sciences</h3>      
-    
-  </div>
+<!--<div class="container-fluid " style="background-color: #192F59;">-->
+<!--  <div class="container"  >-->
+
+
+<!--    <h4 style="font-family: calibri;text-align: center;color: white; padding-top: 20px;">National Institute Of Technology Karnataka , Surathkal</h4>-->
+<!--    <h3 style="font-family: calibri;text-align: center;color: white; padding-bottom: 20px">Department Of Mathematical And Computational Sciences</h3>-->
+
+<!--  </div>-->
      
 
-</div>
+<!--</div>-->
 
 
-</body>
+<!--</body>-->
+
+
+
+
+
+
+  <!----------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+  <!--------------------------------------------------------------------->
+
+
+
+
+
+
+
+
 <!--  logout tag by rubyy by default  
   <%= link_to "log out",destroy_user_session_path %> -->
 
-
-<span style="font-family: sans-serif; ">
-    <% flash.each do |name, message| %>
-      <%= content_tag(:div,message,class: "alert alert-info #{name}") %>
-    </span>
-    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -26,18 +26,23 @@
   <% end %>
 
   <div class="form-inputs">
-    <%= form.label :Circular_Title %>
-    <%= form.text_field :Circular_Title ,class: "custom-input"%>
+
+  <div style="margin-left: 40px;margin-right: 40px" > </div>
+  </div>
+
+  <div class="row" style="margin-left: 15%;" >
+    <div class="col-6"  style=""><%= form.label :Circular_Title  %></div>
+    <div class="col-5" style="margin-left: -5%;margin-top: -10px" >  <%= form.text_field :Circular_Title ,class: " form-control mb-2 mr-sm-2",:required => true %></div>
   </div>
 
   <div style="margin-left: 20px">
    <br>
-    <%= form.file_field :Select_File %>
+    <%= form.file_field :Select_File,:required => true %>
     <br>
     <br>
   </div>
 
   <div class="form-actions">
-    <%= form.submit :create  ,class: "btn btn-info" %>
+    <div style="padding-bottom: 20px"><%= form.submit :create  ,class: "btn btn-info" %></div>
   </div>
 <% end %>

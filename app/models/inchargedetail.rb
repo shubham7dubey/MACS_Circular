@@ -1,0 +1,2 @@
+class Inchargedetail < ApplicationRecord
+end

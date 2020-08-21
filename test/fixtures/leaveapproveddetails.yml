@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicantid: MyString
+  date_to: MyString
+  date_from: MyString
+  applied_date: 2020-01-16
+  ltype: MyString
+  reason: MyString
+  address: MyString
+  administrationduties: MyString
+  classarrangement: MyString
+  approve_date: 2020-01-16
+  tohalf: MyString
+  fromhalf: MyString
+
+two:
+  applicantid: MyString
+  date_to: MyString
+  date_from: MyString
+  applied_date: 2020-01-16
+  ltype: MyString
+  reason: MyString
+  address: MyString
+  administrationduties: MyString
+  classarrangement: MyString
+  approve_date: 2020-01-16
+  tohalf: MyString
+  fromhalf: MyString

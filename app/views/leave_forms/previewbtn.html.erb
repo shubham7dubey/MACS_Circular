@@ -1,0 +1,152 @@
+
+
+<center style="margin-top: 5%" ><%= wicked_pdf_image_tag '/images/formheader.png' %></center>
+<center style="" ><%= wicked_pdf_image_tag '/images/formheader2.png' %></center>
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>
+<center>
+<table style="margin-top: 1% ">
+  <tr>
+
+  </tr>
+  <tr>
+    <td style="width: 30px; height: 70px" ><center> 1 </center> </td>
+    <td style="width: 500px"><%= wicked_pdf_image_tag '/images/namehindi.png' %> </td>
+    <td style="width: 10px" >  </td>
+    <td style="width: 500px"><center><%= current_user.username%></center></td>
+  </tr>
+  <tr>
+    <td style="width: 30px; height: 70px" ><center> 2 </center> </td>
+    <td style="width: 500px"> <%= wicked_pdf_image_tag '/images/desghindi.png' %></td>
+    <td style="width: 10px" >  </td>
+    <td style="width: 500px"><center><%= current_user.role%></center></td>
+  </tr>
+  <tr>
+    <td style="width: 30px; height: 70px" ><center> 3 </center> </td>
+    <td style="width: 500px"> <%= wicked_pdf_image_tag '/images/depthindi.png' %></td>
+    <td style="width: 10px" >  </td>
+    <td style="width: 500px"><center>MACS</center></td>
+  </tr>  <tr>
+  <tr>
+    <td style="width: 30px; height: 70px" ><center> 4 </center> </td>
+    <td style="width: 500px"> <%= wicked_pdf_image_tag '/images/typehindi.png' %></td>
+    <td style="width: 10px" >  </td>
+    <td style="width: 500px"><center><%= @ltype %></center></td>
+  </tr>  <tr>
+  <td style="width: 30px; height: 70px" ><center> 5 </center> </td>
+  <td style="width: 500px"> <%= wicked_pdf_image_tag '/images/durhindi.png' %></td>
+  <td style="width: 10px" >  </td>
+  <td style="width: 500px">
+    <table>
+      <tr>
+        <td style="width: 165px"> <%= wicked_pdf_image_tag '/images/tohindi.png' %> </td>
+        <td style="width: 165px"> <%= wicked_pdf_image_tag '/images/takhindi.png' %></td>
+        <td style="width: 165px"> <%= wicked_pdf_image_tag '/images/totalhindi.png' %></td>
+      </tr>
+      <tr>
+        <td style="height: 60px"> <center><%= @dfrom%></center></td>
+        <td style="height: 60px"><center><%= @dto%></center></td>
+        <td style="height: 60px"><center><%= @daysCount%></center></td>
+      </tr>
+    </table>
+  </td>
+</tr>  <tr>
+  <td style="width: 100px; height: 70px" ><center> 6 </center> </td>
+  <td style="width: 500px"> <%= wicked_pdf_image_tag '/images/purposehindi.png' %></td>
+  <td style="width: 10px" >  </td>
+  <td style="width: 500px"><center><%= @ptype%></center></td>
+</tr>  <tr>
+  <td style="width: 30px; height: 100px" ><center> 7</center> </td>
+  <td style="width: 500px"> <%= wicked_pdf_image_tag '/images/addrhindi.png' %></td>
+  <td style="width: 10px" >  </td>
+  <td style="width: 500px"><center><%= @address%></center></td>
+</tr>  <tr>
+  <td style="width: 30px; height: 70px" ><center> 8 </center> </td>
+  <td style="width: 500px"> <%= wicked_pdf_image_tag '/images/mobilehindi.png' %></td>
+  <td style="width: 10px" >  </td>
+  <td style="width: 500px"><center><%= current_user.contact_no%></center></td>
+</tr>  <tr>
+  <td style="width: 30px; height: 70px" ><center> 9 </center> </td>
+  <td style="width: 500px"><%= wicked_pdf_image_tag '/images/arrhindi.png' %></td>
+  <td style="width: 10px" ></td>
+
+
+  <td style="width: 500px"><center><%= @alternativeclass %></center></td>
+</tr>  <tr>
+  <td style="width: 30px; height: 70px" ><center>  </center> </td>
+  <td style="width: 500px"><%= wicked_pdf_image_tag '/images/arr2hindi.png' %></td>
+  <td style="width: 10px" >  </td>
+  <td style="width: 500px"><center><%= @admnsalter %></center></td>
+</tr>
+
+
+</table>
+
+</center>
+
+<br><br><br><br>
+<br><br><br><br>
+
+<div style="margin-left: 0px" ><%= wicked_pdf_image_tag '/images/approvedatehindi.png' %></div>
+<br>
+<center><%= wicked_pdf_image_tag '/images/officehindi.png' %></center>
+<br>
+<table  >
+  <tr>
+    <td style="width: 40px" ></td>
+    <td style="width: 400px" ><center><%= wicked_pdf_image_tag '/images/naturehindi.png' %></center></td>
+    <td style="width: 500px"><center><%= wicked_pdf_image_tag '/images/currenthindi.png' %></center></td>
+    <td style="width: 300px"><center><%= wicked_pdf_image_tag '/images/balancehindi.png' %></center></td>
+  </tr>
+  <tr>
+    <td style="width: 400px" ><center><%= wicked_pdf_image_tag '/images/ahindi.png' %></center></td>
+    <td style="width: 400px" ><center><%= wicked_pdf_image_tag '/images/casualhindi.png' %></center></td>
+    <td style="width: 500px"></td>
+    <td style="width: 300px"></td>
+  </tr>
+  <tr>
+
+    <td style="width: 40px" ><center><%= wicked_pdf_image_tag '/images/bhindi.png' %></center></td>
+    <td style="width: 400px" ><center><%= wicked_pdf_image_tag '/images/earnedhindi.png' %></center></td>
+    <td style="width: 500px"></td>
+    <td style="width: 300px"></td>
+  </tr>
+  <tr>
+
+    <td style="width: 40px" ><center><%= wicked_pdf_image_tag '/images/chindi.png' %></center></td>
+    <td style="width: 400px" ><center><%= wicked_pdf_image_tag '/images/restrictedhindi.png' %></center></td>
+    <td style="width: 500px"></td>
+    <td style="width: 300px"></td>
+  </tr>
+  <tr>
+
+    <td style="width: 40px" ><center><%= wicked_pdf_image_tag '/images/dhindi.png' %></center></td>
+    <td style="width: 400px" ><center><%= wicked_pdf_image_tag '/images/compensatoryhindi.png' %></center></td>
+    <td style="width: 500px"></td>
+    <td style="width: 300px"></td>
+  </tr>
+  <tr>
+
+    <td style="width: 40px" ><center><%= wicked_pdf_image_tag '/images/ehindi.png' %></center></td>
+    <td style="width: 400px" ><center><%= wicked_pdf_image_tag '/images/schindi.png' %></center></td>
+    <td style="width: 500px"></td>
+    <td style="width: 300px"></td>
+  </tr>
+</table></center>
+</td>
+
+<td></td>
+<td></td>
+</tr>
+
+
+
+
+</table>
+<br><br>
+<%= wicked_pdf_image_tag '/images/datehindi.png' %>
+<span style="float: right"><%= wicked_pdf_image_tag '/images/sanctionhindi.png' %></span>
