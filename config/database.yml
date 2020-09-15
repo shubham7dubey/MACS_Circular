@@ -14,7 +14,8 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: macsnitk
+  #password: macsnitk
+  password: root
   socket: /var/run/mysqld/mysqld.sock
 
 development:
@@ -51,4 +52,6 @@ production:
   <<: *default
   database: macscircular
   username: root
-  password: MACSnitk
+  #password: MACSnitk
+  password: root  
+

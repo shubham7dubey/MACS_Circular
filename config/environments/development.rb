@@ -72,5 +72,6 @@ Rails.application.configure do
     authentication:       'login',
     enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { :host => '10.11.0.63:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  #config.action_mailer.default_url_options = { :host => '10.11.0.63:3000' }
 end
